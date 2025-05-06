@@ -1,11 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <form action="#" class="form">
+      <div class="form__control">
+        <label for="name" class="form__label">Enter a city name</label>
+        <div class="form__valid">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form__input"
+            aria-describedby="invalid-name"
+            autocomplete="name"
+            required />
+          <span
+            class="form__checkmark"
+            id="valid-name"
+            aria-hidden="true"></span>
+        </div>
+        <span class="form__error" id="invalid-name" aria-live="polite"></span>
+      </div>
+
+      <button class="button" id="search">Get Weather</button>
+    </form>
+  </body>
 </html>
