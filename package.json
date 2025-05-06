@@ -1,5 +1,5 @@
 {
-  "name": "webpack-template",
+  "name": "weather-app",
   "version": "1.2.1",
   "main": "./src/index.js",
   "scripts": {
@@ -16,9 +16,9 @@
     "not dead"
   ],
   "keywords": [],
-  "author": "",
+  "author": "py-code314",
   "license": "ISC",
-  "description": "",
+  "description": "live weather app",
   "devDependencies": {
     "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.27.1",

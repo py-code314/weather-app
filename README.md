@@ -1,2 +1,1 @@
-# Webpack Template for Odin projects
-## Add ESLint and Prettier
+# Weather App for The Odin Project

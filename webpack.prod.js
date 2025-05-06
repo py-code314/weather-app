@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+
 // webpack.prod.js
 const path = require('path')
 const common = require('./webpack.common')
