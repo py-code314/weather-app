@@ -1,22 +1,26 @@
 // Get DOM elements
-const form = document.querySelector('#form')
 const city = document.querySelector('#city')
-const searchButton = document.querySelector('#search')
-console.log(searchButton)
 
-function validateForm(event) {
-  console.log('validate form')
+
+/* Function to validate form */
+export function validateForm(event) {
+  // console.log('validate form')
   event.preventDefault()
+
+  let isValid = true
 
   const errorMessageContainer = document.querySelector('#invalid-city')
   errorMessageContainer.textContent = ''
 
   if (city.validity.valueMissing) {
-    console.log('value missing')
+    // console.log('value missing')
     errorMessageContainer.textContent = 'Please enter a city name'
+    isValid = false;
   } else {
     errorMessageContainer.textContent = ''
   }
+
+  return { isValid, city }
 }
 
-form.addEventListener('submit', validateForm)
+

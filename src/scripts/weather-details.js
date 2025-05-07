@@ -1,16 +1,14 @@
+// Import functions
 import { getWeatherData } from './weather-data'
 
 // Initialize weather object
 export const weather = {}
 
-
-async function getWeatherDetails() {
-  const weatherData = await getWeatherData('london')
-  // console.log(weatherData)
+/* Function to process and filter weather data */
+export async function getWeatherDetails(location) {
+  const weatherData = await getWeatherData(location)
   const { currentConditions, days, description, resolvedAddress } = weatherData
-  // console.log(currentConditions, days, description, resolvedAddress)
-  const location = resolvedAddress.split(',')[0]
-  // console.log(location)
+  const city = resolvedAddress.split(',')[0]
 
   const {
     temp,
@@ -22,19 +20,10 @@ async function getWeatherDetails() {
     sunrise,
     sunset,
   } = currentConditions
-  // console.log(
-  //   temp,
-  //   feelslike,
-  //   humidity,
-  //   windspeed,
-  //   uvindex,
-  //   conditions,
-  //   sunrise,
-  //   sunset
-  // )
+  
 
   // Add location
-  weather['location'] = location
+  weather['location'] = city
 
   // Add current conditions
   weather['currentDay'] = {
@@ -89,4 +78,3 @@ async function getWeatherDetails() {
   console.log(weather)
 }
 
-getWeatherDetails()
