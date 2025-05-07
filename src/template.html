@@ -6,27 +6,23 @@
     <title>Weather App</title>
   </head>
   <body>
-    <form action="#" class="form">
+    <form action="#" class="form" id="form" novalidate>
       <div class="form__control">
-        <label for="name" class="form__label">Enter a city name</label>
-        <div class="form__valid">
-          <input
-            type="text"
-            name="name"
-            id="name"
-            class="form__input"
-            aria-describedby="invalid-name"
-            autocomplete="name"
-            required />
-          <span
-            class="form__checkmark"
-            id="valid-name"
-            aria-hidden="true"></span>
-        </div>
-        <span class="form__error" id="invalid-name" aria-live="polite"></span>
+        <label for="city" class="form__label">Enter a city name</label>
+
+        <input
+          type="text"
+          name="city"
+          id="city"
+          class="form__input"
+          aria-describedby="invalid-city"
+          autocomplete="name"
+          required />
+
+        <span class="form__error" id="invalid-city" aria-live="polite"></span>
       </div>
 
-      <button class="button" id="search">Get Weather</button>
+      <button class="button" id="search" type="submit">Get Weather</button>
     </form>
   </body>
 </html>
