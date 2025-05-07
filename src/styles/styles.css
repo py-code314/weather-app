@@ -1,3 +1,218 @@
+/* ===================
+   CSS VARIABLES
+   =================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Sacramento&display=swap');
+
+:root {
+  /* Font Size */
+  --fs-40: 0.25rem; /* 4px */
+  --fs-60: 0.375rem; /* 6px */
+  --fs-80: 0.5rem; /* 8px */
+  --fs-100: 0.625rem; /* 10px */
+  --fs-150: 0.6875rem; /* 11px */
+  --fs-200: 0.75rem; /* 12px */
+  --fs-250: 0.8125rem; /* 13px */
+  --fs-300: 0.875rem; /* 14px */
+  --fs-350: 0.9375rem; /* 15px */
+  --fs-400: 1rem; /* 16px */
+  --fs-450: 1.0625rem; /* 17px */
+  --fs-500: 1.125rem; /* 18px */
+  --fs-550: 1.1875rem; /* 19px */
+  --fs-600: 1.25rem; /* 20px */
+  --fs-625: 1.3125rem; /* 21px */
+  --fs-650: 1.375rem; /* 22px */
+  --fs-675: 1.4375rem; /* 23px */
+  --fs-700: 1.5rem; /* 24px */
+  --fs-750: 1.625rem; /* 26px */
+  --fs-800: 1.75rem; /* 28px */
+  --fs-850: 1.875rem; /* 30px */
+  --fs-900: 2rem; /* 32px */
+  --fs-950: 2.125rem; /* 34px */
+  --fs-1000: 2.25rem; /* 36px */
+  --fs-1050: 2.375rem; /* 38px */
+  --fs-1100: 2.5rem; /* 40px */
+
+  /* Font weights */
+  --fw-thin: 100;
+  --fw-extra-light: 200;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+  --fw-black: 900;
+  --fw-extra-black: 950;
+
+  /* Font family */
+  --ff-sacramento: 'Sacramento', cursive;
+  --ff-alice: 'Alice', serif;
+
+  /* Spaces */
+  --space-40: 0.25rem;
+  --space-60: 0.375rem;
+  --space-80: 0.5rem;
+  --space-100: 0.625rem;
+  --space-150: 0.6875rem;
+  --space-200: 0.75rem;
+  --space-250: 0.8125rem;
+  --space-300: 0.875rem;
+  --space-350: 0.9375rem;
+  --space-400: 1rem;
+  --space-450: 1.0625rem;
+  --space-500: 1.125rem;
+  --space-550: 1.1875rem;
+  --space-600: 1.25rem;
+  --space-625: 1.3125rem;
+  --space-650: 1.375rem;
+  --space-675: 1.4375rem;
+  --space-700: 1.5rem;
+  --space-750: 1.625rem;
+  --space-800: 1.75rem;
+  --space-850: 1.875rem;
+  --space-900: 2rem;
+  --space-950: 2.125rem;
+  --space-1000: 2.25rem;
+  --space-1050: 2.375rem;
+  --space-1100: 2.5rem;
+  --space-1275: 2.9375rem; /* 47px */
+  --space-1600: 3.75rem; /* 60px */
+  --space-1650: 3.875rem; /* 62px */
+  --space-1700: 4rem; /* 64px */
+  --space-2100: 5rem; /* 80px */
+
+  /* Colors */
+  --clr-black: hsl(0, 0%, 0%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-red: hsl(0, 100%, 50%);
+  --clr-green: hsl(120, 100%, 25%);
+  --clr-blue: hsl(240, 100%, 50%);
+
+  /* Utilities */
+  --radius-1: 0.3125rem; /* 5px */
+  --radius-2: 0.625rem; /* 10px */
+  --radius-circle: 50%;
+  --shadow-1: 0px 5px 10px 0px hsla(0, 0%, 0%, 0.36);
+  --shadow-2: 5px 5px 10px hsla(0, 0%, 0%, 0.5);
+  --shadow-3: 0px 3px 5px 0px hsla(0, 0%, 0%, 0.25);
+}
+
+/* ===================
+   JOSH COMEAU'S RESET 
+   =================== */
+
+/* Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Typographic tweaks! */
 body {
-  background-color: steelblue;
+  min-height: 100svh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove built-in form typography styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Create a root stacking context */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Remove markers from lists */
+ul {
+  list-style-type: none;
+}
+
+/* ===================
+   END OF RESET 
+   =================== */
+
+/* Use grid for layout */
+body {
+  background-color: #5796F4;
+  padding: var(--space-400);
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header header'
+    'main main'
+    'footer footer';
+  font-family: var(--ff-alice);
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-700);
+  color: var(--clr-white);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-400);
+}
+
+.header__logo {
+  border: 1px solid var(--clr-black);
+  border-radius: var(--radius-circle);
+  /* padding: var(--space-30); */
+  overflow: hidden;
+}
+
+.header__title {
+  font-family: var(--ff-sacramento);
+  /* font-size: var(--fs-900); */
+}
+
+.nav__list {
+  display: flex;
+  gap: var(--space-400);
+}
+
+.nav__link {
+  text-decoration: none;
+  color: var(--clr-white);
 }

@@ -7,14 +7,17 @@
   </head>
   <body>
     <header class="header">
-      <div class="header__logo">
-        <img
-          src="./assets/images/icon-weather.gif"
-          alt=""
-          width="40"
-          height="40" />
+      <div class="header__container">
+        <div class="header__logo">
+          <img
+            class="header__image"
+            src="./assets/images/icon-weather.gif"
+            alt=""
+            width="50"
+            height="50" />
+        </div>
+        <h1 class="header__title">SkyCast</h1>
       </div>
-      <h1 class="header__title">SkyCast</h1>
       <nav class="nav">
         <ul class="nav__list">
           <li class="nav__list-tem">
@@ -40,23 +43,24 @@
         </ul>
       </nav>
     </header>
-    <form action="#" class="form" id="form" novalidate>
-      <div class="form__control">
-        <label for="city" class="form__label">Enter a city name</label>
+    <main class="main">
+      <form action="#" class="form" id="form" novalidate>
+        <div class="form__control">
+          <label for="city" class="form__label">Enter a city name</label>
+          <input
+            type="text"
+            name="city"
+            id="city"
+            class="form__input"
+            aria-describedby="invalid-city"
+            autocomplete="name"
+            required />
+          <span class="form__error" id="invalid-city" aria-live="polite"></span>
+        </div>
+        <button class="button" id="search" type="submit">Get Weather</button>
+      </form>
+    </main>
 
-        <input
-          type="text"
-          name="city"
-          id="city"
-          class="form__input"
-          aria-describedby="invalid-city"
-          autocomplete="name"
-          required />
-
-        <span class="form__error" id="invalid-city" aria-live="polite"></span>
-      </div>
-
-      <button class="button" id="search" type="submit">Get Weather</button>
-    </form>
+    
   </body>
 </html>
