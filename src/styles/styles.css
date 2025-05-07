@@ -216,3 +216,13 @@ body {
   text-decoration: none;
   color: var(--clr-white);
 }
+
+.footer {
+  grid-area: footer;
+  text-align: center;
+  color: var(--clr-white);
+}
+
+.footer__link {
+  color: var(--clr-black)
+}
