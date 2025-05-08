@@ -11,7 +11,7 @@
         <div class="header__logo">
           <img
             class="header__image"
-            src="./assets/images/icon-weather.gif"
+            src="./assets/images/icon-umbrella.png"
             alt=""
             width="50"
             height="50" />
@@ -44,26 +44,45 @@
       </nav>
     </header>
     <main class="main">
-      <form action="#" class="form" id="form" novalidate>
-        <div class="form__control">
-          <label for="city" class="form__label">Enter a city name</label>
-          <input
-            type="text"
-            name="city"
-            id="city"
-            class="form__input"
-            aria-describedby="invalid-city"
-            autocomplete="name"
-            required />
-          <span class="form__error" id="invalid-city" aria-live="polite"></span>
+      <div class="today">
+        <div class="today__summary">
+          <p class="today__greeting">Good Morning</p>
+          <p class="today__conditions">Partly cloudy conditions expected around 16:00 with wind gusts are up to 21 mph.</p>
         </div>
-        <button class="button" id="search" type="submit">Get Weather</button>
-      </form>
+        <div class="today__icon">
+          <img src="./assets/images/icon-partly-cloudy.svg" alt="" width="500" height="500">
+        </div>
+        <div class="today__weather" id="current-conditions"></div>
+      </div>
+      <div class="forecast">
+        <form action="#" class="form forecast__form" id="form" novalidate>
+          <div class="form__control">
+            <label for="city" class="form__label">Enter a city name</label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              class="form__input"
+              aria-describedby="invalid-city"
+              autocomplete="name"
+              required />
+            <span class="form__error" id="invalid-city" aria-live="polite"></span>
+          </div>
+          <button class="button" id="search" type="submit">Get Weather</button>
+        </form>
+        <section class="forecast__today">
+          <h2 class="forecast__heading">Today's Weather Details...</h2>
+          
+        </section>
+        <section class="forecast__week">
+          <h2 class="forecast__heading">7-day Forecast</h2>
+        </section>
+      </div>
     </main>
 
     <footer class="footer">
       <p class="footer_api">Powered by Weather API from <a href="https://www.visualcrossing.com/weather-query-builder/#" class="footer__link">visualcrossing.com</a></p>
-      <p class="footer__icons">All icons are from <a href="https://www.flaticon.com/" class="footer__link">flaticon.com</a></p>
+      
     </footer>
   </body>
 </html>

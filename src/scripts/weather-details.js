@@ -7,18 +7,22 @@ export const weather = {}
 /* Function to process and filter weather data */
 export async function getWeatherDetails(location) {
   const weatherData = await getWeatherData(location)
+  console.log(weatherData)
   const { currentConditions, days, description, resolvedAddress } = weatherData
   const city = resolvedAddress.split(',')[0]
 
   const {
-    temp,
+    conditions,
+    datetime,
     feelslike,
     humidity,
-    windspeed,
-    uvindex,
-    conditions,
+    icon,
+    snow,
     sunrise,
     sunset,
+    temp,
+    uvindex,
+    windspeed
   } = currentConditions
   
 
@@ -27,14 +31,17 @@ export async function getWeatherDetails(location) {
 
   // Add current conditions
   weather['currentDay'] = {
-    temp,
+    conditions,
+    datetime,
     feelslike,
     humidity,
-    windspeed,
-    uvindex,
-    conditions,
+    icon,
+    snow,
     sunrise,
     sunset,
+    temp,
+    uvindex,
+    windspeed
   }
 
   // Add days
@@ -46,6 +53,8 @@ export async function getWeatherDetails(location) {
       description,
       feelslike,
       humidity,
+      icon,
+      snow,
       sunrise,
       sunset,
       temp,
@@ -61,6 +70,8 @@ export async function getWeatherDetails(location) {
       description,
       feelslike,
       humidity,
+      icon,
+      snow,
       sunrise,
       sunset,
       temp,

@@ -196,7 +196,7 @@ body {
 }
 
 .header__logo {
-  border: 1px solid var(--clr-black);
+  /* border: 1px solid var(--clr-black); */
   border-radius: var(--radius-circle);
   /* padding: var(--space-30); */
   overflow: hidden;
