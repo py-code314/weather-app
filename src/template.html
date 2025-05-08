@@ -47,17 +47,35 @@
       <div class="today">
         <div class="today__summary">
           <p class="today__greeting">Good Morning</p>
-          <p class="today__conditions">Partly cloudy conditions expected around 16:00 with wind gusts are up to 21 mph.</p>
+          <p class="today__conditions">
+            Partly cloudy conditions expected around 16:00 with wind gusts are
+            up to 21 mph.
+          </p>
         </div>
         <div class="today__icon">
-          <img src="./assets/images/icon-partly-cloudy.svg" alt="" width="500" height="500">
+          <img
+            src="./assets/images/icon-partly-cloudy.svg"
+            alt=""
+            width="500"
+            height="500" />
         </div>
-        <div class="today__weather" id="current-conditions"></div>
+        <div class="today__weather" id="current-conditions">
+          <div class="today__degrees">16°</div>
+          <div class="">
+            <div class="today__location">
+              <p class="today__city">London</p>
+              <p class="today__country">England, United Kingdom</p>
+            </div>
+            <p class="today__datetime">
+              <time datetime="2023-09-09T06:09">06:09 - Monday, 9 Sep '23</time>
+            </p>
+          </div>
+        </div>
       </div>
       <div class="forecast">
         <form action="#" class="form forecast__form" id="form" novalidate>
           <div class="form__control">
-            <label for="city" class="form__label">Enter a city name</label>
+            <label for="city" class="form__label">Search City</label>
             <input
               type="text"
               name="city"
@@ -66,23 +84,52 @@
               aria-describedby="invalid-city"
               autocomplete="name"
               required />
-            <span class="form__error" id="invalid-city" aria-live="polite"></span>
           </div>
-          <button class="button" id="search" type="submit">Get Weather</button>
+          <button class="button" id="search">
+            <img
+              src="./assets/images/icon-search.svg"
+              alt="Search"
+              title="Search"
+              width="20"
+              height="20" />
+          </button>
+          <span class="form__error" id="invalid-city" aria-live="polite"></span>
         </form>
         <section class="forecast__today">
-          <h2 class="forecast__heading">Today's Weather Details...</h2>
-          
+          <h2 class="forecast__heading">Today's Weather...</h2>
+          <p class="forecast__summary">Thunderstorm with light drizzle</p>
+          <ul class="forecast__list">
+            <li class="forecast__list-item">
+              <p class="forecast__entry">Temperature</p>
+              <p class="forecast__value">19°</p>
+              <img class="forecast__image" src="./assets/images/icon-temperature.svg" alt="" width="20" height="20" />
+            </li>
+          </ul>
         </section>
         <section class="forecast__week">
-          <h2 class="forecast__heading">7-day Forecast</h2>
+          <h2 class="forecast__heading">7-Day Forecast</h2>
+          <ul class="forecast__list">
+            <li class="forecast__list-item">
+              <p class="forecast__day">Fri</p>
+              <p class="forecast__min">19°</p>
+              <div class="forecast__bar"></div>
+              <p class="forecast__max">15°</p>
+              <img class="forecast__image" src="./assets/images/cloudy-day-3.svg" alt="" width="30" height="30"></img>
+            </li>
+          </ul>
         </section>
       </div>
     </main>
 
     <footer class="footer">
-      <p class="footer_api">Powered by Weather API from <a href="https://www.visualcrossing.com/weather-query-builder/#" class="footer__link">visualcrossing.com</a></p>
-      
+      <p class="footer_api">
+        Powered by Weather API from
+        <a
+          href="https://www.visualcrossing.com/weather-query-builder/#"
+          class="footer__link"
+          >visualcrossing.com</a
+        >
+      </p>
     </footer>
   </body>
 </html>
