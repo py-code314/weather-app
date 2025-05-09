@@ -43,6 +43,7 @@
         </ul>
       </nav>
     </header>
+
     <main class="main">
       <div class="today">
         <div class="today__summary">
@@ -52,8 +53,9 @@
             up to 21 mph.
           </p>
         </div>
-        <div class="today__icon">
+        <div class="today__image-container">
           <img
+            class="today__image"
             src="./assets/images/icon-partly-cloudy.svg"
             alt=""
             width="500"
@@ -61,11 +63,10 @@
         </div>
         <div class="today__weather" id="current-conditions">
           <p class="today__degrees">16°</p>
-          <div class="">
-            
-              <p class="today__city">London</p>
-              <p class="today__country">England, United Kingdom</p>
-            
+          <div class="today__location">
+            <p class="today__city">London</p>
+            <p class="today__country">England, United Kingdom</p>
+
             <p class="today__datetime">
               <time datetime="2023-09-09T06:09">06:09 - Monday, 9 Sep '23</time>
             </p>
@@ -74,7 +75,6 @@
       </div>
       <div class="forecast">
         <form action="#" class="form forecast__form" id="form" novalidate>
-          
           <label for="city" class="form__label">Search City</label>
           <div class="form__container">
             <input
@@ -86,7 +86,7 @@
               autocomplete="name"
               placeholder="City Name..."
               required />
-                      
+
             <button class="button" id="search">
               <img
                 src="./assets/images/icon-search.svg"
@@ -99,6 +99,8 @@
           <span class="form__error" id="invalid-city" aria-live="polite"></span>
         </form>
 
+        <hr />
+
         <section class="forecast__today">
           <h2 class="forecast__heading">Today's Weather...</h2>
           <p class="forecast__summary">Thunderstorm with light drizzle</p>
@@ -107,11 +109,19 @@
               <p class="forecast__entry">Temperature</p>
               <div class="forecast__container">
                 <p class="forecast__value">19°</p>
-                <img class="forecast__image" src="./assets/images/icon-temperature.svg" alt="" width="25" height="25" />
+                <img
+                  class="forecast__image"
+                  src="./assets/images/icon-temperature.svg"
+                  alt=""
+                  width="25"
+                  height="25" />
               </div>
             </li>
           </ul>
         </section>
+
+        <hr />
+
         <section class="forecast__week">
           <h2 class="forecast__heading">7-Day Forecast</h2>
           <ul class="forecast__list">
@@ -122,7 +132,12 @@
                 <div class="forecast__bar"></div>
                 <p class="forecast__max">15°</p>
               </div>
-              <img class="forecast__image" src="./assets/images/cloudy-day-3.svg" alt="" width="50" height="50"></img>
+              <img
+                class="forecast__image"
+                src="./assets/images/cloudy-day-3.svg"
+                alt=""
+                width="50"
+                height="50" />
             </li>
           </ul>
         </section>

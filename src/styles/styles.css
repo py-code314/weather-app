@@ -264,7 +264,7 @@ body {
   /* letter-spacing:0.01px; */
 }
 
-.today__icon {
+.today__image-container {
   display: flex;
   justify-content: center;
 }
