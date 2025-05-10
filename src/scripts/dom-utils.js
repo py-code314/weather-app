@@ -30,10 +30,21 @@ export const createTime = (parent, className, text, dateTime) => {
 };
 
 /* Creates a container element */
-export const createContainer = (parent, name, id, className) => {
-  const element = document.createElement(name);
-  element.id = id;
-  element.className = className;
-  parent.appendChild(element);
-  return element;
+export const createContainer = (parent, element, id, className) => {
+  const container = document.createElement(element);
+  container.id = id;
+  container.className = className;
+  parent.appendChild(container);
+  return container;
 };
+
+/* Creates heading */
+export const createHeading = (parent, element, id, className, text) => {
+  const heading = document.querySelector(element)
+  heading.id = id
+  heading.className = className
+  heading.textContent = text
+  parent.appendChild(heading)
+  return heading
+
+}
