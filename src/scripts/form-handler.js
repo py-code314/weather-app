@@ -1,6 +1,11 @@
-// Import functions
+// Import data and functions
+import { weather } from './weather-details'
 import { validateForm } from './form-validation'
 import { getWeatherDetails } from './weather-details'
+import { displayCurrentWeatherSummary } from './current-weather-summary'
+import { displayAnimatedIcon } from './animated-icons'
+import { displayCurrentWeatherDetails } from './current-weather-details'
+
 
 // Get DOM elements
 const form = document.querySelector('#form')
@@ -11,8 +16,11 @@ form.addEventListener('submit', (event) => {
 
   if (isValid) {
     const cityName = city.value
-    console.log(cityName)
-    getWeatherDetails(cityName)
+    getWeatherDetails(cityName).then(() => {
+      displayCurrentWeatherSummary(weather)
+      displayAnimatedIcon(weather.currentConditions.icon)
+      displayCurrentWeatherDetails(weather)
+    })
   } else {
     return
   }

@@ -82,6 +82,8 @@
   --space-1650: 3.875rem; /* 62px */
   --space-1700: 4rem; /* 64px */
   --space-2100: 5rem; /* 80px */
+  --width-image: 31.25rem /* 500px */
+  --height-image: 31.25rem /* 500px */
 
   /* Colors */
   --clr-black: hsl(0, 0%, 0%);
@@ -267,6 +269,11 @@ body {
 .today__image-container {
   display: flex;
   justify-content: center;
+}
+
+.today__image {
+  width: var(--width-image);
+  height: var(--height-image);
 }
 
 .today__city {
