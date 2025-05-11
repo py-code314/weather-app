@@ -1,11 +1,12 @@
 // Import data and functions
-import { animatedIcons } from './animated-icons'
+// import { animatedIcons } from './animated-icons'
 import {
   createHeading,
   createParagraph,
   createContainer,
   createImage,
 } from './dom-utils'
+import { getWeatherIcon } from './animated-icons'
 import { format, parseISO } from 'date-fns'
 
 // Import DOM elements
@@ -31,14 +32,16 @@ export function displayWeekForecast(weather) {
   // Create ul
   const weekList = createContainer(weekForecast, 'ul', '', 'forecast__list')
 
-  next7Days.forEach((day) => {
-    // Format values
+  next7Days.forEach(async (day) => {
+    // Retrieve and format values
     const localDate = parseISO(day.datetime)
     const weekDay = format(new Date(`${localDate}`), 'EEE')
     // console.log(weekDay)
     const minTemp = Math.round(day.tempmin)
     const maxTemp = Math.round(day.tempmax)
-    const icon = day.icon
+    // const icon = day.icon
+    // Get image url
+    const imageUrl = await getWeatherIcon(day.icon)
 
     /* Create container for day */
     const dayContainer = createContainer(
@@ -70,7 +73,8 @@ export function displayWeekForecast(weather) {
     createImage(
       dayContainer,
       'forecast__image',
-      `${animatedIcons[icon]}`,
+      // `${animatedIcons[icon]}`,
+      imageUrl,
       '',
       35,
       35
