@@ -29,6 +29,6 @@ export function displayCurrentWeatherSummary(weather) {
   createParagraph(
     todaySummary,
     'today__conditions',
-    `${weather.currentConditions.conditions}, ${humid} conditions with feels like temperature ${feelsLike}°  and ${weather.currentConditions.windspeed} wind speed`
+    `${weather.currentConditions.conditions}, ${humid} conditions with feels like temperature ${feelsLike}° and   wind speed at ${weather.currentConditions.windspeed}`
   )
 }

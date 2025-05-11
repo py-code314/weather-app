@@ -51,57 +51,57 @@ export function displayTodayForecast(weather) {
   const detailsList = createContainer(todayForecast, 'ul', '', 'forecast__list')
 
   /* Create container for temperature */
-  const temperature = createContainer(
-    detailsList,
-    'li',
-    '',
-    'forecast__list-item'
-  )
+  // const temperature = createContainer(
+  //   detailsList,
+  //   'li',
+  //   '',
+  //   'forecast__item'
+  // )
 
-  // Create para
-  createParagraph(temperature, 'forecast__entry', 'Temperature')
+  // // Create para
+  // createParagraph(temperature, 'forecast__entry', 'Temperature')
 
-  // Create container
-  const tempInfo = createContainer(
-    temperature,
-    'div',
-    '',
-    'forecast__container'
-  )
+  // // Create container
+  // const tempInfo = createContainer(
+  //   temperature,
+  //   'div',
+  //   '',
+  //   'forecast__container'
+  // )
 
-  // Create paragraph
-  createParagraph(tempInfo, 'forecast__value', `${todayTemp}°`)
+  // // Create paragraph
+  // createParagraph(tempInfo, 'forecast__value', `${todayTemp}°`)
 
-  // Create image
-  createImage(tempInfo, 'forecast__image', tempIconUrl, '', 35, 35)
+  // // Create image
+  // createImage(tempInfo, 'forecast__image', tempIconUrl, '', 40, 40)
 
-  /* Create container for feels like temperature */
-  const feelsLike = createContainer(
-    detailsList,
-    'li',
-    '',
-    'forecast__list-item'
-  )
+  // /* Create container for feels like temperature */
+  // const feelsLike = createContainer(
+  //   detailsList,
+  //   'li',
+  //   '',
+  //   'forecast__item'
+  // )
 
-  // Create para
-  createParagraph(feelsLike, 'forecast__entry', 'Feels Like')
+  // // Create para
+  // createParagraph(feelsLike, 'forecast__entry', 'Feels Like')
 
-  // Create container
-  const feelsLikeInfo = createContainer(
-    feelsLike,
-    'div',
-    '',
-    'forecast__container'
-  )
+  // // Create container
+  // const feelsLikeInfo = createContainer(
+  //   feelsLike,
+  //   'div',
+  //   '',
+  //   'forecast__container'
+  // )
 
-  // Create paragraph
-  createParagraph(feelsLikeInfo, 'forecast__value', `${todayFeelsLike}°`)
+  // // Create paragraph
+  // createParagraph(feelsLikeInfo, 'forecast__value', `${todayFeelsLike}°`)
 
-  // Create image
-  createImage(feelsLikeInfo, 'forecast__image', feelsLikeIconUrl, '', 35, 35)
+  // // Create image
+  // createImage(feelsLikeInfo, 'forecast__image', feelsLikeIconUrl, '', 40, 40)
 
   /* Create container for min temperature */
-  const minTemp = createContainer(detailsList, 'li', '', 'forecast__list-item')
+  const minTemp = createContainer(detailsList, 'li', '', 'forecast__item')
 
   // Create para
   createParagraph(minTemp, 'forecast__entry', 'Min Temp')
@@ -113,10 +113,10 @@ export function displayTodayForecast(weather) {
   createParagraph(minTempInfo, 'forecast__value', `${todayMinTemp}°`)
 
   // Create image
-  createImage(minTempInfo, 'forecast__image', minTempIconUrl, '', 35, 35)
+  createImage(minTempInfo, 'forecast__image', minTempIconUrl, '', 40, 40)
 
   /* Create container for max temperature */
-  const maxTemp = createContainer(detailsList, 'li', '', 'forecast__list-item')
+  const maxTemp = createContainer(detailsList, 'li', '', 'forecast__item')
 
   // Create para
   createParagraph(maxTemp, 'forecast__entry', 'Max Temp')
@@ -128,10 +128,10 @@ export function displayTodayForecast(weather) {
   createParagraph(maxTempInfo, 'forecast__value', `${todayMaxTemp}°`)
 
   // Create image
-  createImage(maxTempInfo, 'forecast__image', maxTempIconUrl, '', 35, 35)
+  createImage(maxTempInfo, 'forecast__image', maxTempIconUrl, '', 40, 40)
 
   // Create container for humidity
-  const humidity = createContainer(detailsList, 'li', '', 'forecast__list-item')
+  const humidity = createContainer(detailsList, 'li', '', 'forecast__item')
 
   // Create para
   createParagraph(humidity, 'forecast__entry', 'Humidity')
@@ -148,10 +148,10 @@ export function displayTodayForecast(weather) {
   createParagraph(humidityInfo, 'forecast__value', `${todayHumidity}%`)
 
   // Create image
-  createImage(humidityInfo, 'forecast__image', humidityIconUrl, '', 35, 35)
+  createImage(humidityInfo, 'forecast__image', humidityIconUrl, '', 40, 40)
 
   /* Create container for uv index */
-  const uvIndex = createContainer(detailsList, 'li', '', 'forecast__list-item')
+  const uvIndex = createContainer(detailsList, 'li', '', 'forecast__item')
 
   // Create para
   createParagraph(uvIndex, 'forecast__entry', 'UV Index')
@@ -167,10 +167,10 @@ export function displayTodayForecast(weather) {
   )
 
   // Create image
-  createImage(uvIndexInfo, 'forecast__image', uvIndexIconUrl, '', 35, 35)
+  createImage(uvIndexInfo, 'forecast__image', uvIndexIconUrl, '', 40, 40)
 
   /* Create container for sunrise */
-  const sunrise = createContainer(detailsList, 'li', '', 'forecast__list-item')
+  const sunrise = createContainer(detailsList, 'li', '', 'forecast__item')
 
   // Create para
   createParagraph(sunrise, 'forecast__entry', 'Sunrise')
@@ -182,10 +182,10 @@ export function displayTodayForecast(weather) {
   createParagraph(sunriseInfo, 'forecast__value', `${todaySunrise}`)
 
   // Create image
-  createImage(sunriseInfo, 'forecast__image', sunriseIconUrl, '', 35, 35)
+  createImage(sunriseInfo, 'forecast__image', sunriseIconUrl, '', 40, 40)
 
   /* Create container for sunset */
-  const sunset = createContainer(detailsList, 'li', '', 'forecast__list-item')
+  const sunset = createContainer(detailsList, 'li', '', 'forecast__item')
 
   // Create para
   createParagraph(sunset, 'forecast__entry', 'Sunset')
@@ -197,5 +197,5 @@ export function displayTodayForecast(weather) {
   createParagraph(sunsetInfo, 'forecast__value', `${todaySunset}`)
 
   // Create image
-  createImage(sunsetInfo, 'forecast__image', sunsetIconUrl, '', 35, 35)
+  createImage(sunsetInfo, 'forecast__image', sunsetIconUrl, '', 40, 40)
 }

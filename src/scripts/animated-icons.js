@@ -12,8 +12,8 @@ export async function displayAnimatedIcon(iconId) {
   animation.className = 'today__image'
   animation.src = imageUrl
   animation.alt = `${iconId}`
-  animation.width = 500
-  animation.height = 500
+  animation.width = 550
+  animation.height = 550
 
   imageContainer.appendChild(animation)
 }

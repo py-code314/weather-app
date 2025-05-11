@@ -14,7 +14,7 @@ export function displayCurrentWeatherDetails(weather) {
   const city = location[0]
   const country = location.slice(1).join().trim()
   const datetimeString = `${weather.daysForecast[0].datetime}T${weather.currentConditions.datetime}`
-  const date = format(new Date(`${datetimeString}`), "h:mm a eeee, d MMMM ''yy")
+  const date = format(new Date(`${datetimeString}`), "eeee, d MMMM ''yy")
 
   // Display temperature
   createParagraph(currentConditions, 'today__degrees', `${temp}°`)
