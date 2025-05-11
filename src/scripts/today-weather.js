@@ -3,7 +3,7 @@ import {
   createContainer,
   createHeading,
   createImage,
-  createParagraph
+  createParagraph,
 } from './dom-utils'
 import { format } from 'date-fns'
 
@@ -34,13 +34,13 @@ export function displayTodayForecast(weather) {
   const todaySunset = format(new Date(`${sunsetDatetime}`), 'h:mm a')
 
   // Create heading
-  createHeading(todayForecast, 'h2', '', 'forecast__heading', "Today's Weather")
+  createHeading(todayForecast, 'h2', 'forecast__heading', "Today's Weather")
 
   // Create paragraph
   createParagraph(
     todayForecast,
     'forecast__summary',
-    `${weather.currentConditions.conditions}`
+    `${weather.daysForecast[0].description}`
   )
 
   // Create ul

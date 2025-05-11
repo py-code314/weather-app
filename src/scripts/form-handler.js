@@ -6,6 +6,7 @@ import { displayCurrentWeatherSummary } from './current-weather-summary'
 import { displayAnimatedIcon } from './animated-icons'
 import { displayCurrentWeatherDetails } from './current-weather-details'
 import { displayTodayForecast } from './today-weather'
+import { displayWeekForecast } from './week-forecast'
 
 
 // Get DOM elements
@@ -22,6 +23,7 @@ form.addEventListener('submit', (event) => {
       displayAnimatedIcon(weather.currentConditions.icon)
       displayCurrentWeatherDetails(weather)
       displayTodayForecast(weather)
+      displayWeekForecast(weather)
     })
   } else {
     return

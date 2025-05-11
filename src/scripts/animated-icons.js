@@ -21,24 +21,24 @@ import notAvailableIcon from '../assets/images/animated/icon-not-available.svg'
 const imageContainer = document.querySelector('#image-container')
 
 // Initialize object
-// const animatedIcons = {
-//   'snow': snowIcon,
-//   'snow-showers-day': snowShowersDayIcon,
-//   'snow-showers-night': snowShowersNightIcon,
-//   'thunder-rain': thunderRainIcon,
-//   'thunder-showers-day': thunderShowersDayIcon,
-//   'thunder-showers-night': thunderShowersNightIcon,
-//   'rain': rainIcon,
-//   'showers-day': showersDayIcon,
-//   'showers-night': showersNightIcon,
-//   'fog': fogIcon,
-//   'wind': windIcon,
-//   'cloudy': cloudyIcon,
-//   'partly-cloudy-day': partlyCloudyDayIcon,
-//   'partly-cloudy-night': partlyCloudyNightIcon,
-//   'clear-day': clearDayIcon,
-//   'clear-night': clearNightIcon
-// }
+export const animatedIcons = {
+  'snow': snowIcon,
+  'snow-showers-day': snowShowersDayIcon,
+  'snow-showers-night': snowShowersNightIcon,
+  'thunder-rain': thunderRainIcon,
+  'thunder-showers-day': thunderShowersDayIcon,
+  'thunder-showers-night': thunderShowersNightIcon,
+  'rain': rainIcon,
+  'showers-day': showersDayIcon,
+  'showers-night': showersNightIcon,
+  'fog': fogIcon,
+  'wind': windIcon,
+  'cloudy': cloudyIcon,
+  'partly-cloudy-day': partlyCloudyDayIcon,
+  'partly-cloudy-night': partlyCloudyNightIcon,
+  'clear-day': clearDayIcon,
+  'clear-night': clearNightIcon
+}
 
 export function displayAnimatedIcon(iconId) {
   imageContainer.textContent = ''

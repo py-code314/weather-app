@@ -39,9 +39,8 @@ export const createContainer = (parent, element, id, className) => {
 };
 
 /* Creates heading */
-export const createHeading = (parent, element, id, className, text) => {
-  const heading = document.querySelector(element)
-  heading.id = id
+export const createHeading = (parent, element, className, text) => {
+  const heading = document.createElement(element)
   heading.className = className
   heading.textContent = text
   parent.appendChild(heading)
