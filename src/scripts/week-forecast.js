@@ -1,5 +1,4 @@
 // Import data and functions
-// import { animatedIcons } from './animated-icons'
 import {
   createHeading,
   createParagraph,
@@ -17,7 +16,6 @@ export function displayWeekForecast(weather) {
 
   // Remove first entry in days array
   const next7Days = weather.daysForecast.slice(1)
-  // console.log(next7Days)
 
   // Create heading
   createHeading(weekForecast, 'h2', 'forecast__heading', '7-Day Forecast')
@@ -36,10 +34,9 @@ export function displayWeekForecast(weather) {
     // Retrieve and format values
     const localDate = parseISO(day.datetime)
     const weekDay = format(new Date(`${localDate}`), 'EEE')
-    // console.log(weekDay)
     const minTemp = Math.round(day.tempmin)
     const maxTemp = Math.round(day.tempmax)
-    // const icon = day.icon
+
     // Get image url
     const imageUrl = await getWeatherIcon(day.icon)
 
@@ -73,7 +70,6 @@ export function displayWeekForecast(weather) {
     createImage(
       dayContainer,
       'forecast__image',
-      // `${animatedIcons[icon]}`,
       imageUrl,
       '',
       35,
