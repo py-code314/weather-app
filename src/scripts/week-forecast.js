@@ -11,12 +11,14 @@ import { format, parseISO } from 'date-fns'
 // Import DOM elements
 const weekForecast = document.querySelector('#week-forecast')
 
-export function displayWeekForecast(weather) {
+export async function displayWeekForecast(weather) {
   weekForecast.textContent = ''
 
   // Remove first entry in days array
   const next7Days = weather.daysForecast.slice(1)
-  // console.log(next7Days)
+  // Sort arrays by date
+  const sortedDays = [...next7Days].sort((a, b) => new Date(a.datetime) - new Date(b.datetime))
+
 
   // Create heading
   createHeading(weekForecast, 'h2', 'forecast__heading', '7-Day Forecast')
@@ -32,14 +34,11 @@ export function displayWeekForecast(weather) {
   const weekList = createContainer(weekForecast, 'ul', '', 'forecast__list')
 
   // TODO: Sort week days by date
-  next7Days.forEach(async (day, index) => {
-    // console.log(index)
+  for (const day of sortedDays) {
+  
     // Retrieve and format values
     const localDate = parseISO(day.datetime)
-    // console.log(localDate)
-    // const weekDay = format(new Date(`${localDate}`), 'EEE')
     const weekDay = format(localDate, 'EEE')
-    // console.log(weekDay)
     const minTemp = Math.round(day.tempmin)
     const maxTemp = Math.round(day.tempmax)
 
@@ -81,5 +80,5 @@ export function displayWeekForecast(weather) {
       35,
       35
     )
-  })
+  }
 }
