@@ -85,8 +85,10 @@
   --width-image: 25rem; /* 400px */
   --height-image: 25rem; /* 400px */
 
+  
+
   /* Colors */
-  /* --clr-black: grey; */
+  --clr-bg: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   --clr-white: hsl(0, 0%, 100%);
   --clr-black: #282828;
   --clr-red: hsl(0, 100%, 50%);
@@ -176,7 +178,8 @@ ul {
 
 /* Use grid for layout */
 body {
-  background: hotpink;
+  /* background: hotpink; */
+  background: var(--clr-bg);
 
   padding: var(--space-400) var(--space-1100);
   display: grid;
@@ -399,6 +402,10 @@ body {
 }
 
 .footer__link {
-  color: var(--clr-black);
+  color: var(--clr-yellow);
   font-size: var(--fs-450);
+}
+
+.footer__link:hover {
+  color: var(--clr-white);
 }

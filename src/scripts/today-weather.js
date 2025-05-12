@@ -8,11 +8,7 @@ import {
 import { getWeatherIcon } from './animated-icons'
 import { format } from 'date-fns'
 
-
-
 // Import images dynamically
-const tempIconUrl = await getWeatherIcon('thermometer-glass')
-const feelsLikeIconUrl = await getWeatherIcon('thermometer')
 const minTempIconUrl = await getWeatherIcon('thermometer-colder')
 const maxTempIconUrl = await getWeatherIcon('thermometer-warmer')
 const humidityIconUrl = await getWeatherIcon('humidity')
@@ -20,15 +16,12 @@ const uvIndexIconUrl = await getWeatherIcon('uv-index')
 const sunriseIconUrl = await getWeatherIcon('sunrise')
 const sunsetIconUrl = await getWeatherIcon('sunset')
 
-
 // Import DOM elements
 const todayForecast = document.querySelector('#today-forecast')
 
 export function displayTodayForecast(weather) {
   todayForecast.textContent = ''
 
-  const todayTemp = Math.round(weather.currentConditions.temp)
-  const todayFeelsLike = Math.round(weather.currentConditions.feelslike)
   const todayMinTemp = Math.round(weather.daysForecast[0].tempmin)
   const todayMaxTemp = Math.round(weather.daysForecast[0].tempmax)
   const todayHumidity = Math.round(weather.currentConditions.humidity)
@@ -49,56 +42,6 @@ export function displayTodayForecast(weather) {
 
   // Create ul
   const detailsList = createContainer(todayForecast, 'ul', '', 'forecast__list')
-
-  /* Create container for temperature */
-  // const temperature = createContainer(
-  //   detailsList,
-  //   'li',
-  //   '',
-  //   'forecast__item'
-  // )
-
-  // // Create para
-  // createParagraph(temperature, 'forecast__entry', 'Temperature')
-
-  // // Create container
-  // const tempInfo = createContainer(
-  //   temperature,
-  //   'div',
-  //   '',
-  //   'forecast__container'
-  // )
-
-  // // Create paragraph
-  // createParagraph(tempInfo, 'forecast__value', `${todayTemp}°`)
-
-  // // Create image
-  // createImage(tempInfo, 'forecast__image', tempIconUrl, '', 40, 40)
-
-  // /* Create container for feels like temperature */
-  // const feelsLike = createContainer(
-  //   detailsList,
-  //   'li',
-  //   '',
-  //   'forecast__item'
-  // )
-
-  // // Create para
-  // createParagraph(feelsLike, 'forecast__entry', 'Feels Like')
-
-  // // Create container
-  // const feelsLikeInfo = createContainer(
-  //   feelsLike,
-  //   'div',
-  //   '',
-  //   'forecast__container'
-  // )
-
-  // // Create paragraph
-  // createParagraph(feelsLikeInfo, 'forecast__value', `${todayFeelsLike}°`)
-
-  // // Create image
-  // createImage(feelsLikeInfo, 'forecast__image', feelsLikeIconUrl, '', 40, 40)
 
   /* Create container for min temperature */
   const minTemp = createContainer(detailsList, 'li', '', 'forecast__item')

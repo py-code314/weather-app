@@ -10,6 +10,8 @@ import { displayAnimatedIcon } from './scripts/animated-icons'
 import { displayCurrentWeatherDetails } from './scripts/current-weather-details'
 import { displayTodayForecast } from './scripts/today-weather'
 import { displayWeekForecast } from './scripts/week-forecast'
+import { changeBackground } from './scripts/background'
+
 
 getWeatherDetails('boston').then(() => {
   displayCurrentWeatherSummary(weather)
@@ -17,4 +19,5 @@ getWeatherDetails('boston').then(() => {
   displayCurrentWeatherDetails(weather)
   displayTodayForecast(weather)
   displayWeekForecast(weather)
+  changeBackground(weather)
 })
