@@ -1,9 +1,9 @@
 // Import functions
-import { isWithinInterval } from "date-fns"
+import { isWithinInterval } from 'date-fns'
 
 // Import DOM elements
 const body = document.body
-console.log(body)
+
 
 export function changeBackground(weather) {
   // Get sunrise, sunset times and change them into milliseconds
@@ -20,7 +20,7 @@ export function changeBackground(weather) {
     start: new Date(sunriseInMilliseconds),
     end: new Date(sunsetInMilliseconds),
   })
-  console.log(isDay)
+
   // Change background color
   if (isDay) {
     body.style.setProperty(

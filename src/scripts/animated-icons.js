@@ -1,5 +1,12 @@
+// Import functions
+import { createImage } from "./dom-utils"
+
 // Import DOM elements
 const imageContainer = document.querySelector('#image-container')
+const animation = document.querySelector('#animate')
+
+// Import images
+import spinnerIcon from '../assets/images/animated/icon-blocks.svg'
 
 /* Dynamic import of images */
 export async function displayAnimatedIcon(iconId) {
@@ -32,4 +39,8 @@ export async function getWeatherIcon(condition) {
     const fallbackModule = await import(`../assets/images/animated/icon-not-available.svg`)
     return fallbackModule.default
   }
+}
+
+export function displaySpinner() {
+  createImage(animation, 'animation__image', spinnerIcon, '', 42, 42)
 }

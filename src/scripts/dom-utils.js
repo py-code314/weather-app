@@ -19,24 +19,25 @@ export const createImage = (parent, className, src, alt, width, height) => {
   return image
 }
 
+
 /* Creates a <time> element and appends it to the given parent element */
 export const createTime = (parent, className, text, dateTime) => {
-  const time = document.createElement('time');
-  time.className = className;
-  time.textContent = text;
-  time.dateTime = dateTime;
-  parent.appendChild(time);
-  return time;
-};
+  const time = document.createElement('time')
+  time.className = className
+  time.textContent = text
+  time.dateTime = dateTime
+  parent.appendChild(time)
+  return time
+}
 
 /* Creates a container element */
 export const createContainer = (parent, element, id, className) => {
-  const container = document.createElement(element);
-  container.id = id;
-  container.className = className;
-  parent.appendChild(container);
-  return container;
-};
+  const container = document.createElement(element)
+  container.id = id
+  container.className = className
+  parent.appendChild(container)
+  return container
+}
 
 /* Creates heading */
 export const createHeading = (parent, element, className, text) => {
@@ -45,5 +46,4 @@ export const createHeading = (parent, element, className, text) => {
   heading.textContent = text
   parent.appendChild(heading)
   return heading
-
 }

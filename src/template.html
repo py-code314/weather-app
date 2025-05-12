@@ -58,30 +58,34 @@
         </div>
       </div>
       <div class="forecast">
-        <form action="#" class="form forecast__form" id="form" novalidate>
-          <label for="city" class="form__label">Search City</label>
-          <div class="form__container">
-            <input
-              type="text"
-              name="city"
-              id="city"
-              class="form__input"
-              aria-describedby="invalid-city"
-              autocomplete="name"
-              placeholder="City Name..."
-              required />
-
-            <button class="button" id="search">
-              <img
-                src="./assets/images/icon-search.svg"
-                alt="Search"
-                title="Search"
-                width="20"
-                height="20" />
-            </button>
+        <div class="search">
+          <form action="#" class="form forecast__form" id="form" novalidate>
+            <label for="city" class="form__label">Search City</label>
+            <div class="form__container">
+              <input
+                type="text"
+                name="city"
+                id="city"
+                class="form__input"
+                aria-describedby="invalid-city"
+                autocomplete="name"
+                placeholder="City Name..."
+                required />
+              <button class="button" id="search">
+                <img
+                  src="./assets/images/icon-search.svg"
+                  alt="Search"
+                  title="Search"
+                  width="20"
+                  height="20" />
+              </button>
+            </div>
+            <span class="form__error" id="invalid-city" aria-live="polite"></span>
+          </form>
+          <div class="animation" id="animate">
+            
           </div>
-          <span class="form__error" id="invalid-city" aria-live="polite"></span>
-        </form>
+        </div>
 
         <hr />
 
