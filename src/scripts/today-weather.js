@@ -5,6 +5,7 @@ import {
   createImage,
   createParagraph,
 } from './dom-utils'
+import { currentUnit, fahrenheitToCelsius } from './temp-conversion'
 import { getWeatherIcon } from './animated-icons'
 import { format } from 'date-fns'
 
@@ -22,8 +23,21 @@ const todayForecast = document.querySelector('#today-forecast')
 export function displayTodayForecast(weather) {
   todayForecast.textContent = ''
 
-  const todayMinTemp = Math.round(weather.daysForecast[0].tempmin)
-  const todayMaxTemp = Math.round(weather.daysForecast[0].tempmax)
+  let todayMinTemp = ''
+  if (currentUnit === 'us') {
+    todayMinTemp = `${Math.round(weather.daysForecast[0].tempmin)}°F`
+  } else {
+    const temp = fahrenheitToCelsius(weather.daysForecast[0].tempmin)
+    todayMinTemp = `${Math.round(temp)}°C`
+  }
+
+  let todayMaxTemp = ''
+  if (currentUnit === 'us') {
+    todayMaxTemp = `${Math.round(weather.daysForecast[0].tempmax)}°F`
+  } else {
+    const temp = fahrenheitToCelsius(weather.daysForecast[0].tempmax)
+    todayMaxTemp = `${Math.round(temp)}°C`
+  }
   const todayHumidity = Math.round(weather.currentConditions.humidity)
   const sunriseDatetime = `${weather.daysForecast[0].datetime}T${weather.currentConditions.sunrise}`
   const todaySunrise = format(new Date(`${sunriseDatetime}`), 'h:mm a')
@@ -53,7 +67,7 @@ export function displayTodayForecast(weather) {
   const minTempInfo = createContainer(minTemp, 'div', '', 'forecast__container')
 
   // Create paragraph
-  createParagraph(minTempInfo, 'forecast__value', `${todayMinTemp}°`)
+  createParagraph(minTempInfo, 'forecast__value', `${todayMinTemp}`)
 
   // Create image
   createImage(minTempInfo, 'forecast__image', minTempIconUrl, '', 40, 40)
@@ -68,7 +82,7 @@ export function displayTodayForecast(weather) {
   const maxTempInfo = createContainer(maxTemp, 'div', '', 'forecast__container')
 
   // Create paragraph
-  createParagraph(maxTempInfo, 'forecast__value', `${todayMaxTemp}°`)
+  createParagraph(maxTempInfo, 'forecast__value', `${todayMaxTemp}`)
 
   // Create image
   createImage(maxTempInfo, 'forecast__image', maxTempIconUrl, '', 40, 40)

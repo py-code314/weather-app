@@ -1,5 +1,6 @@
 // Import functions
 import { createContainer, createParagraph, createTime } from './dom-utils'
+import { currentUnit, fahrenheitToCelsius } from './temp-conversion'
 import { format } from 'date-fns'
 
 // Import DOM elements
@@ -8,8 +9,13 @@ const currentConditions = document.querySelector('#current-conditions')
 export function displayCurrentWeatherDetails(weather) {
   currentConditions.textContent = ''
 
-  let temp = weather.currentConditions.temp
-  temp = Math.round(temp)
+  let currentTemp = ''
+  if (currentUnit === 'us') {
+    currentTemp = `${Math.round(weather.currentConditions.temp)}°`
+  } else {
+    const temp = fahrenheitToCelsius(weather.currentConditions.temp)
+    currentTemp = `${Math.round(temp)}°`
+  }
   const location = weather.location.split(',')
   const city = location[0]
   const country = location.slice(1).join().trim()
@@ -17,7 +23,7 @@ export function displayCurrentWeatherDetails(weather) {
   const date = format(new Date(`${datetimeString}`), "eeee, d MMMM ''yy")
 
   // Display temperature
-  createParagraph(currentConditions, 'today__degrees', `${temp}°`)
+  createParagraph(currentConditions, 'today__degrees', `${currentTemp}`)
 
   // Create container
   const locationContainer = createContainer(

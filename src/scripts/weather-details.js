@@ -1,15 +1,15 @@
 // Import functions
 import { getWeatherData } from './weather-data'
-
-// Initialize weather object
-export const weather = {}
+import { setLastCityWeatherData } from './state'
 
 /* Function to process and filter weather data */
-export async function getWeatherDetails(location) {
+export async function getWeatherDetails(location='boston') {
   const weatherData = await getWeatherData(location)
   console.log(weatherData)
   const { currentConditions, days, description, resolvedAddress } = weatherData
   const place = resolvedAddress
+
+  const weather = {}
 
   // Add description and location
   weather['weekDescription'] = description
@@ -87,7 +87,9 @@ export async function getWeatherDetails(location) {
   weather['daysForecast'] = dailyWeatherList
 
   console.log(weather)
+
+  setLastCityWeatherData(weather)
+  return weather
 }
 
-// console.log(weather)
-// export {weather}
+

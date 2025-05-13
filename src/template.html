@@ -18,30 +18,40 @@
         </div>
         <h1 class="header__title">Cloud9</h1>
       </div>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__list-tem">
-            <a href="#" onclick="event.preventDefault()" class="nav__link"
-              >Home</a
-            >
-          </li>
-          <li class="nav__list-tem">
-            <a href="#" onclick="event.preventDefault()" class="nav__link"
-              >Map</a
-            >
-          </li>
-          <li class="nav__list-tem">
-            <a href="#" onclick="event.preventDefault()" class="nav__link"
-              >News</a
-            >
-          </li>
-          <li class="nav__list-tem">
-            <a href="#" onclick="event.preventDefault()" class="nav__link"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
+      <div class="header__container">
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__list-tem">
+              <a href="#" onclick="event.preventDefault()" class="nav__link"
+                >Home</a
+              >
+            </li>
+            <li class="nav__list-tem">
+              <a href="#" onclick="event.preventDefault()" class="nav__link"
+                >Map</a
+              >
+            </li>
+            <li class="nav__list-tem">
+              <a href="#" onclick="event.preventDefault()" class="nav__link"
+                >News</a
+              >
+            </li>
+            <li class="nav__list-tem">
+              <a href="#" onclick="event.preventDefault()" class="nav__link"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="toggle">
+          <input type="checkbox" class="toggle__input" id="unit-toggle">
+          <label for="unit-toggle" class="toggle__button">
+            <span class="toggle__label fahrenheit">°F</span>
+            <span class="toggle__label celsius">°C</span>
+            <span class="toggle__slider"></span>
+          </label>
+        </div>
+      </div>
     </header>
 
     <main class="main">

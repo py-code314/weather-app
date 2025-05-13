@@ -5,6 +5,10 @@ import {
   createContainer,
   createImage,
 } from './dom-utils'
+import {
+  currentUnit,
+  fahrenheitToCelsius
+} from './temp-conversion'
 import { getWeatherIcon } from './animated-icons'
 import { format, parseISO } from 'date-fns'
 
@@ -33,14 +37,27 @@ export async function displayWeekForecast(weather) {
   // Create ul
   const weekList = createContainer(weekForecast, 'ul', '', 'forecast__list')
 
-  // TODO: Sort week days by date
   for (const day of sortedDays) {
   
     // Retrieve and format values
     const localDate = parseISO(day.datetime)
     const weekDay = format(localDate, 'EEE')
-    const minTemp = Math.round(day.tempmin)
-    const maxTemp = Math.round(day.tempmax)
+
+    let minTemp = ''
+    if (currentUnit === 'us') {
+      minTemp = `${Math.round(day.tempmin)}°`
+    } else {
+      const temp = fahrenheitToCelsius(day.tempmin)
+      minTemp = `${Math.round(temp)}°`
+    }
+ 
+    let maxTemp = ''
+    if (currentUnit === 'us') {
+      maxTemp = `${Math.round(day.tempmax)}°`
+    } else {
+      const temp = fahrenheitToCelsius(day.tempmax)
+      maxTemp = `${Math.round(temp)}°`
+    }
 
     // Get image url
     const imageUrl = await getWeatherIcon(day.icon)
@@ -65,11 +82,11 @@ export async function displayWeekForecast(weather) {
     )
 
     // Create paragraphs and separator
-    createParagraph(tempsContainer, 'forecast__min', `${minTemp}°`)
+    createParagraph(tempsContainer, 'forecast__min', `${minTemp}`)
 
     createContainer(tempsContainer, 'div', '', 'forecast__bar')
 
-    createParagraph(tempsContainer, 'forecast__max', `${maxTemp}°`)
+    createParagraph(tempsContainer, 'forecast__max', `${maxTemp}`)
 
     // Add weather icon
     createImage(

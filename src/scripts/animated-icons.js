@@ -44,3 +44,7 @@ export async function getWeatherIcon(condition) {
 export function displaySpinner() {
   createImage(animation, 'animation__image', spinnerIcon, '', 42, 42)
 }
+
+export function hideSpinner() {
+  animation.textContent = ''
+}
