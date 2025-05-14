@@ -40,7 +40,7 @@ export function displayCurrentWeatherSummary(weatherData) {
       : `${Math.round(milesToKilometers(windspeed))} kmph`
 
   // Display greeting
-  createParagraph(todaySummary, 'today__greeting', 'Good Morning')
+  createParagraph(todaySummary, 'today__greeting', 'Hi there!')
 
   // Display summary of current conditions
   createParagraph(
