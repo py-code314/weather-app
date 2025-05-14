@@ -6,7 +6,9 @@
     <title>Weather App</title>
   </head>
   <body>
+    <!-- Header -->
     <header class="header">
+      <!-- Logo and title -->
       <div class="header__container">
         <div class="header__logo">
           <img
@@ -18,7 +20,9 @@
         </div>
         <h1 class="header__title">Cloud9</h1>
       </div>
+
       <div class="header__container">
+        <!-- Navigation bar -->
         <nav class="nav">
           <ul class="nav__list">
             <li class="nav__list-tem">
@@ -43,8 +47,10 @@
             </li>
           </ul>
         </nav>
+
+        <!-- Toggle button -->
         <div class="toggle">
-          <input type="checkbox" class="toggle__input" id="unit-toggle">
+          <input type="checkbox" class="toggle__input" id="unit-toggle" />
           <label for="unit-toggle" class="toggle__button">
             <span class="toggle__label fahrenheit">°F</span>
             <span class="toggle__label celsius">°C</span>
@@ -54,21 +60,24 @@
       </div>
     </header>
 
+    <!-- Main content -->
     <main class="main">
+      <!-- Today's weather section -->
       <div class="today">
-        <div class="today__summary" id="today-summary">
-          
-        </div>
-        <div class="today__image-container" id="image-container">
-         
-        </div>
-        <div class="today__weather" id="current-conditions">
-          
-          </div>
-        </div>
+        <!-- Today's weather summary -->
+        <div class="today__summary" id="today-summary"></div>
+
+        <!-- Today's weather image -->
+        <div class="today__image-container" id="image-container"></div>
+
+        <!-- Today's weather conditions -->
+        <div class="today__weather" id="current-conditions"></div>
       </div>
+
+      <!-- Forecast section -->
       <div class="forecast">
         <div class="search">
+          <!-- Search bar -->
           <form action="#" class="form forecast__form" id="form" novalidate>
             <label for="city" class="form__label">Search City</label>
             <div class="form__container">
@@ -90,27 +99,30 @@
                   height="20" />
               </button>
             </div>
-            <span class="form__error" id="invalid-city" aria-live="polite"></span>
+            <!-- Error message -->
+            <span
+              class="form__error"
+              id="invalid-city"
+              aria-live="polite"></span>
           </form>
-          <div class="animation" id="animate">
-            
-          </div>
+
+          <!-- Loading animation -->
+          <div class="animation" id="animate"></div>
         </div>
 
         <hr />
 
-        <section class="forecast__today" id="today-forecast">
-          
-        </section>
+        <!-- Today's forecast -->
+        <section class="forecast__today" id="today-forecast"></section>
 
         <hr />
 
-        <section class="forecast__week" id="week-forecast">
-          
-        </section>
+        <!-- Weekly forecast -->
+        <section class="forecast__week" id="week-forecast"></section>
       </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
       <p class="footer_api">
         Powered by Weather API from
