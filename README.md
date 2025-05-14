@@ -18,7 +18,7 @@ This weather app is a simple web application that allows users to check the curr
 
 ### Screenshots
 
-![The weather app - daytime]()
+![The weather app - daytime](./src/assets/images/screenshots/screenshot-day.png)
 
 ![The weather app - nighttime]()
 
