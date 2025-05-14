@@ -1,5 +1,5 @@
 // Import functions
-import { createImage } from "./dom-utils"
+import { createImage } from './dom-utils'
 
 // Import DOM elements
 const imageContainer = document.querySelector('#image-container')
@@ -8,35 +8,41 @@ const animation = document.querySelector('#animate')
 // Import images
 import spinnerIcon from '../assets/images/animated/icon-blocks.svg'
 
-/* Dynamic import of images */
+/* Displays animated icon for a given weather condition */
 export async function displayAnimatedIcon(iconId) {
-  // Get image url
-  const imageUrl = await getWeatherIcon(iconId)
+  // Get icon url
+  const iconUrl = await getWeatherIcon(iconId)
 
-  // Create image element
+  // Create icon element
   imageContainer.textContent = ''
-  const animation = document.createElement('img')
-  animation.className = 'today__image'
-  animation.src = imageUrl
-  animation.alt = `${iconId}`
-  animation.width = 550
-  animation.height = 550
+  const icon = createImage(
+    imageContainer,
+    'today__image',
+    iconUrl,
+    `${iconId}`,
+    550,
+    550
+  )
 
-  imageContainer.appendChild(animation)
+  imageContainer.appendChild(icon)
 }
 
+/* Retrieves an animated icon dynamically for a given weather condition */
 export async function getWeatherIcon(condition) {
   // Get file based on condition
-  const iconFile = `icon-${condition}.svg`
+  const iconFileName = `icon-${condition}.svg`
 
   try {
     // Dynamically import the icon
-    const iconModule = await import(`../assets/images/animated/${iconFile}`)
+    const iconModule = await import(`../assets/images/animated/${iconFileName}`)
+    // Return icon url
     return iconModule.default
   } catch (error) {
-    console.error('File not found', iconFile, error)
+    console.error('File not found', iconFileName, error)
     // Load default icon if requested icon is not found
-    const fallbackModule = await import(`../assets/images/animated/icon-not-available.svg`)
+    const fallbackModule = await import(
+      `../assets/images/animated/icon-not-available.svg`
+    )
     return fallbackModule.default
   }
 }

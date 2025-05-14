@@ -1,18 +1,17 @@
 // Get DOM elements
 const city = document.querySelector('#city')
 
-/* Function to validate form */
+/* Validate the form before submitting */
 export function validateForm() {
   let isValid = true
 
-  const errorMessageContainer = document.querySelector('#invalid-city')
-  errorMessageContainer.textContent = ''
+  const errorContainer = document.querySelector('#invalid-city')
+  errorContainer.textContent = ''
 
+  // Check for empty city name
   if (city.validity.valueMissing) {
-    errorMessageContainer.textContent = 'Please enter a city name'
+    errorContainer.textContent = 'Please enter a city name'
     isValid = false
-  } else {
-    errorMessageContainer.textContent = ''
   }
 
   return { isValid }

@@ -1,31 +1,44 @@
 // Import functions
 import { createContainer, createParagraph, createTime } from './dom-utils'
-import { currentUnit, fahrenheitToCelsius } from './temp-conversion'
+import { fahrenheitToCelsius } from './temp-conversion'
 import { format } from 'date-fns'
+import { getCurrentUnit } from './state'
 
 // Import DOM elements
 const currentConditions = document.querySelector('#current-conditions')
 
-export function displayCurrentWeatherDetails(weather) {
+export function displayCurrentWeatherDetails(weatherData) {
   currentConditions.textContent = ''
 
-  let currentTemp = ''
-  if (currentUnit === 'us') {
-    currentTemp = `${Math.round(weather.currentConditions.temp)}°`
-  } else {
-    const temp = fahrenheitToCelsius(weather.currentConditions.temp)
-    currentTemp = `${Math.round(temp)}°`
-  }
-  const location = weather.location.split(',')
-  const city = location[0]
-  const country = location.slice(1).join().trim()
-  const datetimeString = `${weather.daysForecast[0].datetime}T${weather.currentConditions.datetime}`
-  const date = format(new Date(`${datetimeString}`), "eeee, d MMMM ''yy")
+  // Destructure weather data
+  const {
+    currentConditions: { temp, datetime },
+    location,
+    daysForecast,
+  } = weatherData
 
-  // Display temperature
-  createParagraph(currentConditions, 'today__degrees', `${currentTemp}`)
+  // Get current unit
+  const currentUnit = getCurrentUnit()
 
-  // Create container
+  // Get city and country
+  const locationArray = location.split(',')
+  const city = locationArray[0]
+  const country = locationArray.slice(1).join().trim()
+
+  // Get and format date
+  const datetimeString = `${daysForecast[0].datetime}T${datetime}`
+  const date = format(new Date(datetimeString), "eeee, d MMMM ''yy")
+  console.log(date)
+
+  // Convert temperature into celsius
+  const currentTemperature =
+    currentUnit === 'us'
+      ? `${Math.round(temp)}°`
+      : `${Math.round(fahrenheitToCelsius(temp))}°`
+
+  // Display current temperature
+  createParagraph(currentConditions, 'today__degrees', currentTemperature)
+
   const locationContainer = createContainer(
     currentConditions,
     'div',
@@ -33,15 +46,10 @@ export function displayCurrentWeatherDetails(weather) {
     'today__location'
   )
 
-  // Create paras for location
-  createParagraph(locationContainer, 'today__city', `${city}`)
-  createParagraph(locationContainer, 'today__country', `${country}`)
+  // Display city and country
+  createParagraph(locationContainer, 'today__city', city)
+  createParagraph(locationContainer, 'today__country', country)
 
-  // Create time element
-  createTime(
-    locationContainer,
-    'today__datetime',
-    `${date}`,
-    `${datetimeString}`
-  )
+  // Display date
+  createTime(locationContainer, 'today__datetime', date, datetimeString)
 }

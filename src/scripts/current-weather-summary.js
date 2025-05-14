@@ -1,49 +1,51 @@
 // Import functions
 import { createParagraph } from './dom-utils'
-import { currentUnit, fahrenheitToCelsius, milesToKilometers } from './temp-conversion'
-
+import { fahrenheitToCelsius, milesToKilometers } from './temp-conversion'
+import { getCurrentUnit } from './state'
 
 // Get elements from DOM
 const todaySummary = document.querySelector('#today-summary')
 
-export function displayCurrentWeatherSummary(weather) {
+export function displayCurrentWeatherSummary(weatherData) {
   todaySummary.textContent = ''
 
-  let humid = ''
-  const humidity = weather.currentConditions.humidity
-  if (humidity >= 0 && humidity <= 25) {
-    humid = 'very dry'
-  } else if (humidity >= 26 && humidity <= 40) {
-    humid = 'comfortable'
-  } else if (humidity >= 41 && humidity <= 60) {
-    humid = 'humid'
-  } else {
-    humid = 'very humid'
-  }
+  // Destructure weather data
+  const {
+    currentConditions: { conditions, humidity, feelslike, windspeed },
+  } = weatherData
 
-  let feelsLike = ''
-  if (currentUnit === 'us') {
-    feelsLike = `${Math.round(weather.currentConditions.feelslike)}°F`
-  } else {
-    const temp = fahrenheitToCelsius(weather.currentConditions.feelslike)
-    feelsLike = `${Math.round(temp)}°C`
-  }
+  // Get current unit
+  const currentUnit = getCurrentUnit()
 
-  let windSpeed = ''
-  if (currentUnit === 'us') {
-    windSpeed = `${Math.round(weather.currentConditions.windspeed)} mph`
-  } else {
-    const speed = milesToKilometers(weather.currentConditions.windspeed)
-    windSpeed = `${Math.round(speed)} kmph`
-  }
+  // Humidity description
+  const humidityDescription =
+    humidity <= 25
+      ? 'very dry'
+      : humidity <= 40
+        ? 'comfortable'
+        : humidity <= 60
+          ? 'humid'
+          : 'very humid'
 
-  // Create greeting
+  // Convert feels like temperature
+  const feelsLikeTemperature =
+    currentUnit === 'us'
+      ? `${Math.round(feelslike)}°F`
+      : `${Math.round(fahrenheitToCelsius(feelslike))}°C`
+
+  // Convert wind speed
+  const windSpeed =
+    currentUnit === 'us'
+      ? `${Math.round(windspeed)} mph`
+      : `${Math.round(milesToKilometers(windspeed))} kmph`
+
+  // Display greeting
   createParagraph(todaySummary, 'today__greeting', 'Good Morning')
 
-  // Create para for weather conditions
+  // Display summary of current conditions
   createParagraph(
     todaySummary,
     'today__conditions',
-    `${weather.currentConditions.conditions}, ${humid} conditions with feels like temperature ${feelsLike} and   wind speed at ${windSpeed}`
+    `${conditions}, ${humidityDescription} conditions with feels like temperature ${feelsLikeTemperature} and wind speed at ${windSpeed}`
   )
 }

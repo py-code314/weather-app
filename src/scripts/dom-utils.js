@@ -1,4 +1,4 @@
-/* Creates a p element */
+/* Creates a paragraph element */
 export const createParagraph = (parent, className, text) => {
   const paragraph = document.createElement('p')
   paragraph.className = className
@@ -19,8 +19,7 @@ export const createImage = (parent, className, src, alt, width, height) => {
   return image
 }
 
-
-/* Creates a <time> element and appends it to the given parent element */
+/* Creates a time element */
 export const createTime = (parent, className, text, dateTime) => {
   const time = document.createElement('time')
   time.className = className
@@ -39,7 +38,7 @@ export const createContainer = (parent, element, id, className) => {
   return container
 }
 
-/* Creates heading */
+/* Creates heading element */
 export const createHeading = (parent, element, className, text) => {
   const heading = document.createElement(element)
   heading.className = className

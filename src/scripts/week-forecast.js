@@ -5,75 +5,65 @@ import {
   createContainer,
   createImage,
 } from './dom-utils'
-import {
-  currentUnit,
-  fahrenheitToCelsius
-} from './temp-conversion'
+import { fahrenheitToCelsius } from './temp-conversion'
 import { getWeatherIcon } from './animated-icons'
+import { getCurrentUnit } from './state'
 import { format, parseISO } from 'date-fns'
 
 // Import DOM elements
 const weekForecast = document.querySelector('#week-forecast')
 
-export async function displayWeekForecast(weather) {
-  weekForecast.textContent = ''
+/* Displays the 7-day forecast summary */
+export async function displayWeeklyForecast(weatherData) {
+  const currentUnit = getCurrentUnit()
 
-  // Remove first entry in days array
-  const next7Days = weather.daysForecast.slice(1)
-  // Sort arrays by date
-  const sortedDays = [...next7Days].sort((a, b) => new Date(a.datetime) - new Date(b.datetime))
+  // Get next 7 days from days array
+  const next7Days = weatherData.daysForecast.slice(1)
 
+  // Sort array by date
+  const sortedDays = [...next7Days].sort(
+    (a, b) => new Date(a.datetime) - new Date(b.datetime)
+  )
 
-  // Create heading
+  // Display heading
   createHeading(weekForecast, 'h2', 'forecast__heading', '7-Day Forecast')
 
-  // Create paragraph
+  // Display forecast summary for a week
   createParagraph(
     weekForecast,
     'forecast__summary',
-    `${weather.weekDescription}`
+    `${weatherData.weekConditions}`
   )
 
-  // Create ul
+  // Container for weekly forecast
   const weekList = createContainer(weekForecast, 'ul', '', 'forecast__list')
 
+  // Loop through days and display 7 days forecast
   for (const day of sortedDays) {
-  
     // Retrieve and format values
     const localDate = parseISO(day.datetime)
     const weekDay = format(localDate, 'EEE')
 
-    let minTemp = ''
-    if (currentUnit === 'us') {
-      minTemp = `${Math.round(day.tempmin)}°`
-    } else {
-      const temp = fahrenheitToCelsius(day.tempmin)
-      minTemp = `${Math.round(temp)}°`
-    }
- 
-    let maxTemp = ''
-    if (currentUnit === 'us') {
-      maxTemp = `${Math.round(day.tempmax)}°`
-    } else {
-      const temp = fahrenheitToCelsius(day.tempmax)
-      maxTemp = `${Math.round(temp)}°`
-    }
+    const minTemp =
+      currentUnit === 'us'
+        ? `${Math.round(day.tempmin)}°`
+        : `${Math.round(fahrenheitToCelsius(day.tempmin))}°`
+
+    const maxTemp =
+      currentUnit === 'us'
+        ? `${Math.round(day.tempmax)}°`
+        : `${Math.round(fahrenheitToCelsius(day.tempmax))}°`
 
     // Get image url
     const imageUrl = await getWeatherIcon(day.icon)
 
-    /* Create container for day */
-    const dayContainer = createContainer(
-      weekList,
-      'li',
-      '',
-      'forecast__item'
-    )
+    // Create container for each day
+    const dayContainer = createContainer(weekList, 'li', '', 'forecast__item')
 
-    // Create para
+    // Display day
     createParagraph(dayContainer, 'forecast__day', `${weekDay}`)
 
-    /* Create container for min and max temperatures */
+    // Create container for min and max temperatures
     const tempsContainer = createContainer(
       dayContainer,
       'li',
@@ -81,21 +71,12 @@ export async function displayWeekForecast(weather) {
       'forecast__temps'
     )
 
-    // Create paragraphs and separator
+    // Display min and max temperatures
     createParagraph(tempsContainer, 'forecast__min', `${minTemp}`)
-
     createContainer(tempsContainer, 'div', '', 'forecast__bar')
-
     createParagraph(tempsContainer, 'forecast__max', `${maxTemp}`)
 
     // Add weather icon
-    createImage(
-      dayContainer,
-      'forecast__image',
-      imageUrl,
-      '',
-      35,
-      35
-    )
+    createImage(dayContainer, 'forecast__image', imageUrl, '', 35, 35)
   }
 }
