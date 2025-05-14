@@ -6,45 +6,11 @@
 
 :root {
   /* Font Size */
-  --fs-40: 0.25rem; /* 4px */
-  --fs-60: 0.375rem; /* 6px */
-  --fs-80: 0.5rem; /* 8px */
-  --fs-100: 0.625rem; /* 10px */
-  --fs-150: 0.6875rem; /* 11px */
-  --fs-200: 0.75rem; /* 12px */
-  --fs-250: 0.8125rem; /* 13px */
-  --fs-300: 0.875rem; /* 14px */
-  --fs-350: 0.9375rem; /* 15px */
-  --fs-400: 1rem; /* 16px */
-  --fs-450: 1.0625rem; /* 17px */
   --fs-500: 1.125rem; /* 18px */
-  --fs-550: 1.1875rem; /* 19px */
   --fs-600: 1.25rem; /* 20px */
-  --fs-625: 1.3125rem; /* 21px */
-  --fs-650: 1.375rem; /* 22px */
-  --fs-675: 1.4375rem; /* 23px */
-  --fs-700: 1.5rem; /* 24px */
-  --fs-750: 1.625rem; /* 26px */
-  --fs-800: 1.75rem; /* 28px */
-  --fs-850: 1.875rem; /* 30px */
   --fs-900: 2rem; /* 32px */
-  --fs-950: 2.125rem; /* 34px */
-  --fs-1000: 2.25rem; /* 36px */
-  --fs-1050: 2.375rem; /* 38px */
   --fs-1100: 2.5rem; /* 40px */
   --fs-temp: 7.5rem; /* 120px */
-
-  /* Font weights */
-  --fw-thin: 100;
-  --fw-extra-light: 200;
-  --fw-light: 300;
-  --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-semibold: 600;
-  --fw-bold: 700;
-  --fw-extra-bold: 800;
-  --fw-black: 900;
-  --fw-extra-black: 950;
 
   /* Font family */
   --ff-sacramento: 'Sacramento', cursive;
@@ -53,66 +19,42 @@
   /* Spaces */
   --space-10: 0.0625rem; /* 1px */
   --space-20: 0.125rem; /* 2px */
-  --space-30: 0.1875rem; /* 3px */
   --space-40: 0.25rem;
-  --space-60: 0.375rem;
   --space-80: 0.5rem;
   --space-100: 0.625rem;
-  --space-150: 0.6875rem;
   --space-200: 0.75rem;
-  --space-250: 0.8125rem;
-  --space-300: 0.875rem;
-  --space-350: 0.9375rem;
   --space-400: 1rem;
-  --space-450: 1.0625rem;
-  --space-500: 1.125rem;
-  --space-550: 1.1875rem;
-  --space-600: 1.25rem;
-  --space-625: 1.3125rem;
-  --space-650: 1.375rem;
-  --space-675: 1.4375rem;
-  --space-700: 1.5rem;
-  --space-750: 1.625rem;
-  --space-800: 1.75rem;
   --space-850: 1.875rem;
   --space-900: 2rem;
-  --space-950: 2.125rem;
-  --space-1000: 2.25rem;
-  --space-1050: 2.375rem;
   --space-1100: 2.5rem;
-  --space-1150: 2.625rem; /* 42px */
-  --space-1200: 2.75rem; /* 44px */
-  --space-1275: 2.9375rem; /* 47px */
   --space-1600: 3.75rem; /* 60px */
-  --space-1650: 3.875rem; /* 62px */
   --space-1700: 4rem; /* 64px */
-  --space-2100: 5rem; /* 80px */
-  --width-image: 25rem; /* 400px */
-  --height-image: 25rem; /* 400px */
-
-  
+  --space-2000: 4.75rem; /* 76px */
 
   /* Colors */
   --clr-white: hsl(0, 0%, 100%);
   --clr-black: #282828;
-  --clr-red: hsl(0, 100%, 50%);
-  --clr-green: hsl(120, 100%, 25%);
+  --clr-red: hsl(359, 77%, 51%);
   --clr-blue: hsl(216, 88%, 65%);
-  --clr-light-blue: hsl(216, 71%, 68%);
-  --clr-yellow: hsl(44, 98%, 49%);
-  --clr-background-day: linear-gradient(to right, hsl(195, 86%, 64%), hsl(214, 84%, 56%));
-  --clr-background-night: linear-gradient(to right, hsl(218, 57%, 38%), hsl(219, 58%, 28%));
+  --clr-background-day: linear-gradient(
+    to right,
+    hsl(195, 86%, 64%),
+    hsl(214, 84%, 56%)
+  );
+  --clr-background-night: linear-gradient(
+    to right,
+    hsl(218, 57%, 38%),
+    hsl(219, 58%, 28%)
+  );
 
   /* Utilities */
   --radius-1: 0.3125rem; /* 5px */
   --radius-2: 0.625rem; /* 10px */
   --radius-3: 3.125rem; /* 50px */
   --radius-circle: 50%;
-  --shadow-1: 0px 5px 10px 0px hsla(0, 0%, 0%, 0.36);
-  --shadow-2: 5px 5px 10px hsla(0, 0%, 0%, 0.5);
+  --shadow-1: 0px 3px 5px 0px hsla(0, 0%, 0%, 0.36);
   --shadow-3: 0px 3px 5px 0px hsla(0, 0%, 0%, 0.25);
-  /* --img-bg: linear-gradient(to right, #12c2e9, #c471ed, #f64f59); */
-  --img-bg: url('../assets/images/image-lake.jpg')
+  --img-bg: url('../assets/images/image-lake.jpg');
 }
 
 /* ===================
@@ -185,7 +127,7 @@ ul {
 
 /* Use grid for layout */
 body {
-  /* background: hotpink; */
+  /* Default background image */
   background: var(--img-bg) center/cover no-repeat;
   padding: var(--space-400) var(--space-1100);
   display: grid;
@@ -197,18 +139,15 @@ body {
     'footer footer';
   font-family: var(--ff-alice);
   min-height: 100vh;
-  /* width: 100vh;
-  max-width: 100vh; */
   color: var(--clr-white);
 }
 
+/* Header styles */
 .header {
   grid-area: header;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 0 var(--space-700); */
-
   border-block-end: 1px solid var(--clr-white);
 }
 
@@ -219,17 +158,20 @@ body {
 }
 
 .header__logo {
-  /* border: 1px solid var(--clr-black); */
   border-radius: var(--radius-circle);
-  /* padding: var(--space-30); */
   overflow: hidden;
 }
 
 .header__title {
   font-family: var(--ff-sacramento);
-  /* font-size: var(--fs-900); */
-  /* margin: auto; */
   padding-block-start: var(--space-100);
+}
+
+/* Navigation styles */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-400);
 }
 
 .nav__list {
@@ -243,29 +185,31 @@ body {
 }
 
 .nav__link:hover {
-  color: var(--clr-yellow);
+  color: var(--clr-red);
 }
 
+/* Hide default checkbox */
 .toggle__input {
   width: 0;
   height: 0;
   visibility: hidden;
 }
 
-
+/* Toggle button styles */
 .toggle__button {
+  /* Place checkbox and label side by side */
   display: inline-flex;
   align-items: center;
-  /* justify-content: space-around; */
   width: var(--space-1700);
   height: var(--space-900);
   background-color: var(--clr-white);
   border-radius: var(--radius-3);
   position: relative;
   cursor: pointer;
-  /* user-select: none; */
+  box-shadow: var(--shadow-1);
 }
 
+/* Label styles */
 .toggle__label {
   width: 50%;
   text-align: center;
@@ -278,39 +222,35 @@ body {
   color: var(--clr-red);
 }
 
+/* Slider styles */
 .toggle__slider {
   width: var(--space-850);
   height: var(--space-850);
   position: absolute;
   top: var(--space-10);
   left: var(--space-20);
-  background-color: var(--clr-light-blue);
+  background-color: var(--clr-blue);
   border-radius: var(--radius-circle);
   transition: left 0.3s;
- 
+  box-shadow: var(--shadow-3);
 }
 
 .toggle__input:checked + .toggle__button .toggle__slider {
   left: var(--space-900);
 }
 
+/* Main section styles */
 .main {
   grid-column: 1 / -1;
   display: flex;
   padding: var(--space-400) 0;
 }
 
+/* Today's weather section styles */
 .today {
   flex: 2;
   display: flex;
   flex-direction: column;
-  /* padding: var(--space-800); */
-}
-
-.today__weather {
-  display: flex;
-  align-items: center;
-  gap: var(--space-100);
 }
 
 .today__greeting {
@@ -321,17 +261,20 @@ body {
   max-width: 50%;
 }
 
+.today__weather {
+  display: flex;
+  align-items: center;
+  gap: var(--space-100);
+}
+
 .today__degrees {
   font-size: var(--fs-temp);
-  /* letter-spacing:0.01px; */
 }
 
 .today__image-container {
   display: flex;
   justify-content: center;
 }
-
-
 
 .today__city {
   font-size: var(--fs-900);
@@ -341,11 +284,12 @@ body {
   font-size: var(--fs-500);
 }
 
+/* Section for form, today's and 7 day forecast */
 .forecast {
   flex: 1;
-  /* width: 80%; */
 }
 
+/* Search form styles */
 .search {
   display: flex;
   gap: var(--space-400);
@@ -356,8 +300,6 @@ body {
   width: 80%;
 }
 
-
-
 .form__label,
 .form__error {
   display: block;
@@ -366,42 +308,33 @@ body {
 
 .form__container {
   display: flex;
-  /* justify-content: center; */
 }
 
 .form__input {
   width: 70%;
-  /* border: transparent; */
   border: 1px solid var(--clr-white);
-  /* border-inline-end: transparent; */
   border-radius: var(--radius-1) 0 0 var(--radius-1);
   padding: var(--space-80);
   font-size: 100%;
-  /* background-color: var(--clr-blue); */
   background: transparent;
-  /* color: inherit; */
 }
 
 .form__input::placeholder {
   color: var(--clr-white);
 }
 
-.animation {
-  display: flex;
-  align-items: flex-end;
-  /* height: 80%; */
-  /* padding-block-start: var(--space-700); */
+.form__error {
+  color: var(--clr-red);
 }
 
+/* Search button styles */
 .button {
   width: 30%;
-  /* border: transparent; */
   border: 1px solid var(--clr-white);
   border-inline-start: transparent;
   border-radius: 0 var(--radius-1) var(--radius-1) 0;
   padding: var(--space-80);
   font-size: 100%;
-  /* background-color: var(--clr-blue); */
   background: transparent;
   cursor: pointer;
   display: flex;
@@ -409,13 +342,15 @@ body {
   align-items: center;
 }
 
-.form__error {
-  color: var(--clr-yellow);
+/* Loading animation styles */
+.animation {
+  display: flex;
+  align-items: flex-end;
 }
 
+/* Forecast styles */
 .forecast__today,
 .forecast__week {
-  /* width: 80%; */
   padding: var(--space-400) 0;
 }
 
@@ -440,9 +375,12 @@ body {
   align-items: center;
 }
 
-/* TODO: apply flex values */
 .forecast__day {
   width: 15%;
+}
+
+.forecast__image--week {
+  width: 10%;
 }
 
 .forecast__value,
@@ -453,29 +391,28 @@ body {
 
 .forecast__temps {
   display: flex;
-  justify-content: space-between;
+  gap: var(--space-400);
   align-items: center;
-  /* gap: var(--space-80); */
   width: 40%;
 }
 
 .forecast__bar {
-  width: var(--space-1600);
+  width: var(--space-2000);
   height: var(--space-40);
   background-color: var(--clr-white);
   border-radius: var(--radius-2);
 }
 
+/* Footer styles */
 .footer {
   grid-area: footer;
   text-align: center;
-  /* color: var(--clr-white); */
   border-block-start: 1px solid var(--clr-white);
   padding-block-start: var(--space-200);
 }
 
 .footer__link {
-  color: var(--clr-yellow);
+  color: var(--clr-red);
   font-size: var(--fs-600);
   text-decoration: none;
 }

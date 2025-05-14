@@ -15,6 +15,7 @@ const weekForecast = document.querySelector('#week-forecast')
 
 /* Displays the 7-day forecast summary */
 export async function displayWeeklyForecast(weatherData) {
+  weekForecast.textContent = ''
   const currentUnit = getCurrentUnit()
 
   // Get next 7 days from days array
@@ -66,7 +67,7 @@ export async function displayWeeklyForecast(weatherData) {
     // Create container for min and max temperatures
     const tempsContainer = createContainer(
       dayContainer,
-      'li',
+      'div',
       '',
       'forecast__temps'
     )
@@ -77,6 +78,6 @@ export async function displayWeeklyForecast(weatherData) {
     createParagraph(tempsContainer, 'forecast__max', `${maxTemp}`)
 
     // Add weather icon
-    createImage(dayContainer, 'forecast__image', imageUrl, '', 35, 35)
+    createImage(dayContainer, 'forecast__image forecast__image--week', imageUrl, '', 35, 35)
   }
 }
