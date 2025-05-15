@@ -27,7 +27,7 @@ This weather app is a simple web application that allows users to check the curr
 ### Links
 
 - Solution URL: [https://github.com/py-code314/weather-app](https://github.com/py-code314/weather-app)
-- Live Site URL: [ ]( )
+- Live Site URL: [https://py-code314.github.io/weather-app/](https://py-code314.github.io/weather-app/)
 
 
 
