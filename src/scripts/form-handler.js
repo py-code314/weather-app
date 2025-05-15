@@ -16,6 +16,7 @@ const city = document.querySelector('#city')
 /* Event listener for form submit */
 form.addEventListener('submit', async (event) => {
   event.preventDefault()
+
   // Check form validity
   const { isValid } = validateForm(event)
   // Get city name
